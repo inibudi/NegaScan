@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+
+    <title>Detektor Konten Situs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff; /* Light blue background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;   
+
+        }
+
+        .container {
+            background-color: #fff; /* Menggunakan #fff untuk warna putih */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 400px; 
+        }
+
+        h1 {
+            color: #007bff; /* Blue color for heading */
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .result-box {
+            background-color: #e0f2fe; /* Lighter blue for result box */
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .result-label {
+            font-weight: bold;
+        }
+
+        .result-value {
+            margin-top: 5px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            background-color: #007bff; /* Blue button */
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Klasifikasi Konten Situs</h1>
+        <p style="text-align: center;">Menggunakan Machine Learning untuk Mendeteksi Situs</p>
+
+        <div class="section">
+            <h2 class="section-title">Hasil Klasifikasi</h2>
+
+            {% if prediction %}
+                <div class="result-box">
+                    <div class="result-label">Nama Situs</div>
+                    <div class="result-value">{{ url }}</div>
+
+                    <div class="result-label">Website ini termasuk dalam kategori:</div>
+                    <div class="result {{ prediction }}">{{ prediction }}</div> 
+                </div>
+            {% endif %}
+
+            {% if error %}
+                <div class="error">
+                    {{ error }}
+                </div>
+            {% endif %}
+
+        </div>
+
+        <form action="/predict" method="post">
+            <input type="text" name="url" placeholder="Enter URL" required>
+            <input type="submit" value="Klasifikasi">
+        </form>
+    </div>
+</body>
+</html>
