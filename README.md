@@ -1,2 +1,2 @@
-# necodetection
-Negatif content website detection system based on machine learning method.
+# NegaScan
+Negatif content website detection system is based on a machine learning method.
