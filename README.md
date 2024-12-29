@@ -1,11 +1,11 @@
 # NegaScan
 Negatif content website detection system is based on a machine learning method.
 
-Requirements:
+**Requirements:**
 1. Python 3.13
 2. Visual Studio Code as IDE
  
-Libraries:
+**Libraries:**
 1. joblib:
    `pip install joblib`
 2. requests:
@@ -18,5 +18,10 @@ Libraries:
    `pip install nltk`
 6. pandas:
    `pip install pandas`
+
+**Running code:**
+`python app.py`
+
+**Screenshot application:**
 
 ![NegaScan](https://github.com/user-attachments/assets/6479a3e3-a432-4555-aa75-7ce185263077)
